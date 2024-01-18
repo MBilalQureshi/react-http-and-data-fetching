@@ -1,4 +1,4 @@
-import css from './App.module.css';
+import css from './App';
 import HTTPRequests from './components/HTTPRequests';
 
 function App() {
