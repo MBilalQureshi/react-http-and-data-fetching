@@ -6,17 +6,25 @@ export class HTTPRequests extends Component {
       super(props)
     
       this.state = {
-         posts: []
+         posts: [],
+         error : null
       }
     }
      
     componentDidMount(){
         axios.get('https://jsonplaceholder.typicode.com/posts/1')
+        // https://jsonplaceholder.typicode.com/posts
         .then(response => {
             console.log(response)
             this.setState({
                 // check if data is array else if object put it an array to make it array
                 posts: Array.isArray(response.data) ? response.data : [response.data]
+            })
+        })
+        .catch(error => {
+            this.setState({
+                //https://jsonplaceholder.typicode.com/posts/3243453
+                error :error.message
             })
         })
     }
@@ -38,7 +46,13 @@ export class HTTPRequests extends Component {
                         <hr />
                     </div>
                 ))
-            ) : (<h4>Post Loading...</h4>)
+            ) : (
+                this.state.error ? (
+                    <p>{this.state.error}</p>
+                ) : (
+                    <h4>Post Loading...</h4>
+                )
+            )
         }
       </div>
     )
