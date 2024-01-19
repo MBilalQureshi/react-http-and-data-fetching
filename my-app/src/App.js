@@ -1,6 +1,7 @@
 import css from './App';
 import HTTPRequests from './components/HTTPRequests';
 import HTTPPost from './components/HTTPPost';
+import HTTPHooks from './components/HTTPHooks';
 
 function App() {
   return (
@@ -9,7 +10,9 @@ function App() {
       {/* Lecture 1 and 2 below */}
       {/* <HTTPRequests /> */}
       {/* Lecture 3 */}
-      <HTTPPost />
+      {/* <HTTPPost /> */}
+      {/* Lecture 4, coverting to hooks */}
+      <HTTPHooks />
     </div>
   );
 }
